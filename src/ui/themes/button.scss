@@ -41,7 +41,12 @@
     color: $font-color-common;
     background-color: $common-white;
     line-height:1.3;
-    font-size:28rpx;
+    font-size:$font-mini_text-size;
+    position:relative;
+    &:after{
+        content:'';
+        border:0rpx;
+    }
     &+& {
         margin-left: 20rpx;
     }

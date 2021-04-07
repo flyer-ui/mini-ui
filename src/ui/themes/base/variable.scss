@@ -49,7 +49,8 @@ $font-color-placeholder:mixColor($default,30%);;
 
 
 //主要边框颜色
-$color-border:#E4EAEC;
+$color-border:#f0f0f0;
+$color-button-border:mixColor($default,30%);
 
 //字体大小规格
 $font-big-size:44rpx;

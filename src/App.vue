@@ -12,6 +12,7 @@
 	}
 </script>
 
-<style>
+<style lang='scss'>
+	@import './ui/themes/index.scss';
 	/*每个页面公共css */
 </style>
