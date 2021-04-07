@@ -1,0 +1,55 @@
+@include b('input-number'){
+    position: relative;
+    display:inline-flex;
+    border-radius: $round-default-size;
+    color:$font-color-common;
+    @include e('native'){
+        outline: none;
+        width:40rpx;
+        padding:0rpx 10rpx 0rpx 10rpx;
+        border:1rpx solid $color-border;
+        box-sizing: border-box;
+        height:40rpx;
+        line-height:40rpx;
+        width:100%;
+        @include state('disabled'){
+            background: rgba($color-border,0.5);
+            cursor:not-allowed;
+        }
+    }
+    .label-extend{
+        cursor: pointer;
+        width:60rpx;
+        box-sizing:border-box;
+        user-select: none;
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        border-left:1rpx solid $color-border;
+        border-top:1rpx solid $color-border;
+        border-bottom:1rpx solid $color-border;
+        border-top-left-radius: $round-default-size;
+        border-bottom-left-radius: $round-default-size;
+        &:hover{
+            background: $color-border;
+        }
+        @include state('disabled'){
+            background: rgba($color-border,0.5);
+            cursor:not-allowed;
+        }
+    }
+    @include e('plus'){
+        top:0rpx;
+        @extend .label-extend;
+    }
+    @include e('minus'){
+        @extend .label-extend;
+        border-right:1rpx solid $color-border !important;
+        border-left:0rpx !important;
+        border-top-left-radius: 0rpx !important;
+        border-bottom-left-radius: 0rpx !important;
+        font-weight: 700;
+        border-top-right-radius: $round-default-size;
+        border-bottom-right-radius: $round-default-size;
+    }
+}

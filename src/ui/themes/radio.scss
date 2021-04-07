@@ -1,0 +1,63 @@
+
+$radio-border-radius:50% !default;
+$radio-width:32rpx !default;
+$radio-height:32rpx !default;
+$radio-point-area:8rpx;
+$radio-padding-area:10rpx;
+@include b(radio) {
+    user-select: none;
+    display:inline-flex;
+    box-sizing:border-box;
+    line-height:$radio-height ;
+    vertical-align:middle;
+    &+& {
+        margin-left: 10rpx;
+    }
+    @include e(input-native) {
+        display: none;
+    }
+    @include e(input) {
+        border: 1rpx solid $color-border;
+        width: $radio-width;
+        height: $radio-height;
+        box-sizing:border-box;
+        background-color: $common-white;
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        font-family: 'icons';
+        border-radius: $radio-border-radius;
+        display: inline-block;
+        &:hover,&:focus{
+            border-color:$primary-color;
+        }
+        @include state(checked) {
+            &::after {
+                content: '';
+                width:$radio-point-area;
+                height:$radio-point-area;
+                background-color: #fff;
+                position:absolute;
+                border-radius: $radio-border-radius;
+                left:$radio-padding-area;
+                top:$radio-padding-area;
+                z-index:1;
+            }
+            color:$common-white;
+            background: $primary-color;
+            border-color:$primary-color;
+        }
+        @include state(disabled){
+            color:$font-color-placeholder;
+            background:$color-border;
+            border-color:$color-border;
+            cursor:not-allowed;
+        }
+    }
+    @include e(label){
+        padding-left:$default-padding;
+        @include state(disabled){
+            cursor: not-allowed;
+        }
+    }
+}

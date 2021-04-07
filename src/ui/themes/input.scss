@@ -1,0 +1,174 @@
+
+// @import "./base/index.scss";
+$input-clear-area:32rpx !default;
+
+@mixin fix-variant($padding,$fontSize){
+    padding:$padding;
+    i[class^='fly-icon']{
+        font-size:$fontSize;
+        display: inline-flex;
+        justify-content: center;
+        align-items:center;
+    }
+}
+
+@mixin native-variant($padding,$fontSize,$borderRadius,$paddingRight,$paddingLeft){
+    padding:$padding;
+    font-size:$fontSize;
+    @include state('round'){
+        border-radius:$borderRadius;
+    }
+    @include state("suffix"){
+        padding-right:$paddingRight;
+    }
+    @include state("prefix"){
+        padding-left:$paddingLeft;
+    }
+}
+
+@include b('input'){
+    position: relative;
+    display: inline-flex;
+    font-size:$font-text-size;
+    line-height: 1.3;
+    @include e('native'){
+        outline: none;
+        border:1rpx solid $color-border;
+        border-radius: $round-default-size;
+        box-sizing: border-box;
+        color:$font-color-common;
+        font-weight:400;
+        width:100%;
+        font-size:$font-mini_text-size;
+        background-color:#f8f8f8;
+        &:focus{
+            border-color:$primary-color;
+        }
+        @include state("disabled"){
+            color:$font-color-secondary;
+            background: mix($color-border,$white,50%);
+            border-color:mix($color-border,$white,90%);
+            cursor:not-allowed;
+        }
+        @include state("prepend"){
+            border-top-left-radius:0rpx;
+            border-bottom-left-radius: 0rpx;
+        }
+        @include state("append"){
+            border-top-right-radius: 0rpx;
+            border-bottom-right-radius: 0rpx;
+        }
+        
+        @include m('large'){
+            height:112rpx;
+            @include native-variant(30rpx, 
+                                    $font-title-size,
+                                    48rpx ,
+                                    92rpx , 
+                                    92rpx)
+        }
+        @include m('medium'){
+            height:80rpx;
+            @include native-variant($default-padding, 
+                                    $font-text-size,
+                                    36rpx ,
+                                    62rpx , 
+                                    62rpx)
+        }
+        @include m('small'){
+            height:56rpx;
+            @include native-variant(8rpx, 
+                                    $font-assist_text-size,
+                                    32rpx ,
+                                    50rpx , 
+                                    50rpx)
+        }
+    }
+    @include e('clear'){
+        position: absolute;
+        display: block;
+        z-index: 1;
+        border-radius: 50%;
+        width: $input-clear-area;
+        height: $input-clear-area;
+        right:24rpx;
+        top: 24rpx;
+        cursor: pointer;
+        font-style:inherit;
+        color:$font-color-placeholder;
+        background-color:mix($color-border,$white,50%);
+        text-align: center;
+        opacity: .6;
+        font-size:24rpx;
+        pointer-events:all;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    @include e('eye'){
+        position: absolute;
+        display: flex;
+        z-index: 1;
+        border-radius: 50%;
+        width: $input-clear-area;
+        height: $input-clear-area;
+        right:22rpx;
+        top: 22rpx;
+        cursor: pointer;
+        font-style:inherit;
+        color:$font-color-placeholder;
+        justify-content: center;
+        align-items: center;
+        opacity: .6;
+        font-size:32rpx;
+        pointer-events:all;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    @include e('prefix'){
+        @extend .fix;
+        left:0px;
+        @include m('small'){
+            @include fix-variant(8rpx  18rpx,24rpx)
+        }
+        @include m('medium'){
+            @include fix-variant(20rpx,36rpx)
+        }
+        @include m('large'){
+            @include fix-variant(36rpx,42rpx)
+        }
+    }
+    @include e('suffix'){
+        @extend .fix;
+        right:0px;
+        @include m('small'){
+            @include fix-variant(4rpx 16rpx,22rpx)
+        }
+        @include m('medium'){
+            @include fix-variant(20rpx,36rpx)
+        }
+        @include m('large'){
+            @include fix-variant(36rpx,42rpx)
+        }
+    }
+    @include e('prepend'){
+        @extend .adorn;
+    }
+    @include e('append'){
+        @extend .adorn;
+    }
+
+    .fix{
+        position: absolute;
+        z-index:99;
+        top:0rpx;
+        bottom: 0rpx;
+        line-height:40rpx;
+        color:$font-color-secondary;
+    }
+    .adorn{
+        background: $color-border;
+        padding:$default-padding;
+    }
+}

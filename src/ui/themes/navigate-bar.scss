@@ -1,0 +1,32 @@
+@include b('navigate-bar'){
+    height:94rpx;
+    width:100%;
+    z-index:999;
+    background-color:rgb(248, 248, 248);
+    display:flex;
+    flex:1;
+    justify-content: center !important;
+    align-items: center !important;
+    position: fixed;
+    top:var(--status-bar-height);
+    box-sizing: border-box;
+    @include e('back'){
+        display: flex;
+        justify-content: center !important;
+        font-size:40rpx;
+        align-items:flex-start;
+        font-weight:500;
+        padding-left:30rpx;
+        box-sizing: border-box;
+        height:100%;
+        flex-direction:column;
+    }
+}
+@include b('status-bar'){
+    height: var(--status-bar-height);
+    width: 100%;
+    background-color: #f8f8f8;
+    z-index:999;
+    position: fixed;
+    top:0rpx;
+}

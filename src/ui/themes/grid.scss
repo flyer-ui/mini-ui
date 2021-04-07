@@ -1,0 +1,13 @@
+@include b('grid'){
+    background-color: $common-white;
+    @include e('row'){
+        & + &{
+            border-top:1rpx solid $color-border;
+        }
+    }
+    @include e('col'){
+        & + & {
+            border-left:1rpx solid $color-border;
+        }   
+    }
+}

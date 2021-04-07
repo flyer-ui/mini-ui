@@ -1,0 +1,77 @@
+// @import "./base/index.scss";
+@include b('drawer'){
+    position:relative;
+    @include e('mask'){
+        position:fixed;
+        top:0rpx;
+        left:0rpx;
+        right:0rpx;
+        bottom:0rpx;
+        background: rgba($font-color-common,0.5); 
+        z-index:9999998;
+    }
+    @include e('header'){
+        position:relative;
+        padding:10rpx 15rpx;
+        box-sizing:border-box;
+        align-items: flex-start;
+        box-shadow:1rpx 1rpx 1rpx rgba($color-border,0.5);
+    }
+    @include e('body'){
+        padding:10rpx 15rpx;
+        align-items: center;
+    }
+    @include e('footer'){
+        position: fixed;
+        bottom:0rpx;
+        left:0rpx;
+        right:0rpx;
+        padding:10rpx 15rpx;
+        background-color: $common-white;
+        box-shadow:1rpx -3rpx 1rpx rgba($color-border,0.5);
+    }
+    @include e('close'){
+        position:absolute;
+        z-index: 1;
+        top:15rpx;
+        right:20rpx;
+        cursor: default;
+        border-radius: 100%;
+        cursor: pointer;
+        font-size:$font-mini_text-size;
+        &:hover{
+            background-color:rgba($color-border,1)
+        }
+    }
+    @include e('content'){
+        box-shadow:1rpx 1rpx 20px rgba($color-border,0.9);
+        position:fixed;
+        z-index:9999999;
+        background: $common-white;
+        min-width:600rpx;
+        display: flex;
+        flex-direction:column;
+        border-top-right-radius: $round-default-size;
+        border-top-left-radius: $round-default-size;
+        @include state('bottom'){
+            bottom:0rpx;
+            left:0rpx;
+            right:0rpx;
+        }
+        @include state('top'){
+            top:0rpx;
+            left:0rpx;
+            right:0rpx;
+        }
+        @include state('left'){
+            top:0rpx;
+            left:0rpx;
+            bottom:0rpx;
+        }
+        @include state('right'){
+            top:0rpx;
+            right:0rpx;
+            bottom:0rpx;
+        }
+    }
+}

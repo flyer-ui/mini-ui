@@ -1,0 +1,18 @@
+@keyframes loop{
+    0%{transform: rotate(360deg)}
+    100%{transform: rotate(0deg)}
+}
+
+.fly-icon-loading{
+    animation:loop 1.5s linear infinite;
+}
+
+// px 转换 rem
+@function rem($px){
+    @return #{$px / 14px + 'rem'};
+    // @return $px
+}
+
+@function mixColor($color,$number){
+    @return mix($color,$white,$number);
+}

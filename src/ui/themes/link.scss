@@ -1,0 +1,56 @@
+
+
+@mixin button-variant($color,$hover-color,$active-color){
+    color:$color;
+    &:hover{
+        color:$hover-color;
+    }
+    &:active,&:focus {
+        color:$active-color;
+    }
+    @include state('underline'){
+        padding-bottom: 2rpx;
+        border-bottom: 1rpx solid $color;
+        &:hover{
+            border-bottom: 1rpx solid $hover-color;
+        }
+        &:active,&:focus {
+            border-bottom: 1rpx solid $active-color;
+        }
+    }
+}
+@include b('link'){
+    background-color: transparent; 
+    text-decoration: none;
+    color:$default; 
+    box-sizing: border-box;
+    cursor:pointer;
+    font-size:$font-assist_text-size;
+    &+& {
+        margin-left: 10rpx;
+    }
+    @include state('disabled'){
+        opacity: 0.65;
+        cursor: not-allowed;
+    }
+
+    @include m('default'){
+        @include button-variant($default-color,$default-hover-color,$default-active-color);
+    }
+
+    @include m('primary'){
+        @include button-variant($primary-color,$primary-hover-color,$primary-active-color);
+    }
+    @include m('success'){
+        @include button-variant($success-color,$success-hover-color,$success-active-color);
+    }
+    @include m('info'){
+        @include button-variant($info-color,$info-hover-color,$info-active-color);
+    }
+    @include m('warning'){
+        @include button-variant($warning-color,$warning-hover-color,$warning-active-color);
+    }
+    @include m('danger'){
+        @include button-variant($danger-color,$danger-hover-color,$danger-active-color);
+    }
+}

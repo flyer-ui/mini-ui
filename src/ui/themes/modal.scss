@@ -1,0 +1,190 @@
+
+// @import "./base/index.scss";
+$modal-zindex:9999999;
+
+@include b('modal'){
+    top:0rpx;
+    right:0rpx;
+    bottom:0rpx;
+    left:0rpx;
+    z-index: $modal-zindex;
+    position:fixed;
+    background: rgba($font-color-common,0.5);  
+    justify-content: center;
+    align-items:center;
+    display:flex; 
+    .box{
+        box-sizing: border-box;
+        position: relative;
+        background: #fff;
+        color:$font-color-common;
+    }
+    .cover{
+        top:0rpx;
+        right:0rpx;
+        bottom:0rpx;
+        left:0rpx;
+        z-index: $modal-zindex;
+        position:fixed;
+    }
+
+    @include e('content'){  
+        z-index: $modal-zindex + 1;
+        border-radius:$round-default-size;
+        margin:0rpx auto;
+        position: relative;
+        text-align: left;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        @extend .box;
+        &:after{
+            content:'';
+            clear:both;
+            display:block;
+        }
+    }
+    @include e('header'){
+        border-top-right-radius: $round-default-size;
+        border-top-left-radius: $round-default-size;
+        font-weight: 700;
+        font-size:$font-mini_title-size;
+        text-align: left;
+        align-items: flex-start;
+        width:100%;
+        min-height: 48rpx;
+        justify-content: center;
+        display: flex;
+        padding:20rpx;
+    }
+    @include e('body'){
+        padding:10rpx;
+        overflow: auto;
+        box-sizing: border-box;
+        font-size:$font-mini_text-size;
+        align-items: center;
+        border-bottom:1rpx solid $color-border;
+        text-align:center;
+        width:100%;
+        padding-bottom:40rpx;
+    }
+    @include e('footer'){
+        border-bottom-right-radius: $round-default-size;
+        border-bottom-left-radius: $round-default-size;
+        width:100%;
+        box-sizing:border-box;
+        align-items: flex-end;
+        display: flex;
+    }
+    @include e('button'){
+        border:0rpx;
+        background-color: inherit;
+        width:100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+        &:first-child{
+            &::after{
+                content:'';
+                position:absolute;
+                z-index:1;
+            }
+            border-right: 1rpx solid $color-border;
+        }
+        &+&{
+            margin-left:0rpx;
+        }
+    }
+    @include e('close'){
+        position: absolute;
+        z-index: 1;
+        right:10rpx;
+        top:10rpx;
+        width:16rpx;
+        height:16rpx;
+        line-height:16rpx;
+        font-size:16rpx;
+        border-radius: 100%;
+        text-align: center;
+        cursor: pointer;
+        &:hover{
+            background: rgba($color-border,0.5);
+        }
+    }
+    @include e('icon'){
+        vertical-align: inherit;
+        color:$primary-color;
+    }
+
+    @include state('confirm'){
+        @include component('content'){
+            box-sizing:border-box;
+        }
+        @include component('header'){
+          border:0rpx;
+        }
+        @include component('footer'){
+            border:0rpx;
+        }
+    }
+    @include state('info'){
+        @include component('content'){
+            box-sizing:border-box;
+        }
+        @include component('header'){
+          border:0rpx;
+        }
+        @include component('footer'){
+            border:0rpx;
+        }
+        @include component('icon'){
+            color:$info-color;
+        }
+    }
+    @include state('warning'){
+        @include component('content'){
+            box-sizing:border-box;
+        }
+        @include component('header'){
+          border:0rpx;
+        }
+        @include component('footer'){
+            border:0rpx;
+        }
+        @include component('icon'){
+            color:$warning-color;
+        }
+    }
+    @include state('danger'){
+        @include component('content'){
+            box-sizing:border-box;
+        }
+        @include component('header'){
+          border:0rpx;
+        }
+        @include component('footer'){
+            border:0rpx;
+        }
+        @include component('icon'){
+            color:$danger-color;
+        }
+    }
+    @include state('success'){
+        @include component('content'){
+            box-sizing:border-box;
+        }
+        @include component('header'){
+          border:0rpx;
+        }
+        @include component('footer'){
+            border:0rpx;
+        }
+        @include component('icon'){
+            color:$success-color;
+            font-size: 16rpx !important;
+        }
+    }
+}

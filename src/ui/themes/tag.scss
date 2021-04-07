@@ -1,0 +1,106 @@
+@mixin tag-variant($color, $backgroundColor) {
+    display: inline-flex;
+    margin-left: rem(5px);
+    >i.fly-icon {
+        cursor: pointer;
+        height: rem(12px);
+        width: rem(12px);
+        border-radius: 50%;
+        font-size:rem(12px);
+        &:hover {
+            background-color: $backgroundColor;
+            color: $color;
+        }
+    }
+}
+
+@include b('tag') {
+    position: relative;
+    border: rem(1px) solid $color-border;
+    padding: rem(5px);
+    font-size: rem(12px);
+    border-radius: $round-default-size;
+    user-select: none;
+    display: inline-flex;
+    box-sizing: border-box;
+    align-items: center;
+    line-height:1.1;
+    &+& {
+        margin-left: rem(10px);
+    }
+
+    @include m('large'){
+        padding:10rpx 40rpx;
+        font-size:$font-text-size;
+    }
+
+    @include m('medium'){
+        padding:5rpx 20rpx;
+        font-size:$font-mini_text-size;
+    }
+
+    @include m('small'){
+        padding:5rpx 10rpx;
+        font-size:$font-assist_text-size;
+    }
+
+    @include m('default') {
+        color: $default;
+        background: $white;
+        border: rem(1px) solid $color-border;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($white, $color-border);
+        }
+    }
+
+    @include m('primary') {
+        color: $primary-color;
+        background: $primary-bg-color;
+        border: rem(1px) solid $primary-color;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($primary-bg-color, $primary-color);
+        }
+    }
+
+    @include m('success') {
+        color: $success-hover-color;
+        background: $success-bg-color;
+        border: rem(1px) solid $success-hover-color;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($success-bg-color, $success-color);
+        }
+    }
+
+    @include m('info') {
+        color: $info-color;
+        background: $info-bg-color, ;
+        border: rem(1px) solid $info-color;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($info-bg-color, $info-color);
+        }
+    }
+
+    @include m('warning') {
+        color: $warning-color;
+        background: $warning-bg-color;
+        border: rem(1px) solid $warning-color;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($warning-bg-color, $warning-color);
+        }
+    }
+
+    @include m('danger') {
+        color: $danger-color;
+        background: $danger-bg-color;
+        border: rem(1px) solid $danger-color;
+
+        @include modifier-element('tag', 'close') {
+            @include tag-variant($danger-bg-color, $danger-color);
+        }
+    }
+}

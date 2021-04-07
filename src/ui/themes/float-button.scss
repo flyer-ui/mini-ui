@@ -1,0 +1,24 @@
+@include b('float-button'){
+    background-color: $common-white;
+    width:100rpx;
+    height:100rpx;
+    border-radius:50%;
+    position:fixed;
+    box-shadow:1rpx 1rpx 12rpx rgba($default-color,0.5);
+    @include state('bottom-right'){
+        bottom:200rpx;
+        right:20rpx;
+    }
+    @include state('bottom-left'){
+        bottom:200rpx;
+        left:20rpx;
+    }
+    @include state('top-left'){
+        top:200rpx;
+        left:20rpx;
+    }
+    @include state('top-right'){
+        top:200rpx;
+        right:20rpx;
+    }
+}

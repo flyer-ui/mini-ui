@@ -1,0 +1,78 @@
+
+
+// @import "./base/index.scss";
+@include b('message'){
+    position: fixed;
+    pointer-events:none;
+    width:100%;
+    background: transparent;
+    text-align: center;
+    top:0rpx;
+    left:0rpx;
+    right:0rpx;
+    bottom:0rpx;
+    display: flex;
+    flex:1;
+    justify-content:center;
+    align-items: center;
+    z-index: 9999;
+    @include e('notice'){
+        margin-top: 10rpx;
+    }
+    @include e('content'){
+        background: rgba(0,0,0,0.7);
+        display: inline-block;
+        pointer-events: all;
+        padding:10rpx 30rpx 10rpx 50rpx;
+        border-radius:$round-default-size;
+        box-shadow:1rpx 1rpx 10rpx rgba($color-border,0.5);
+        position: relative;
+        min-width: 200rpx;
+        max-width: 400rpx;
+        text-align:left;
+        align-items:center;
+        display:inline-flex;
+        color:$white;
+        box-sizing: border-box;
+    }
+    @include e('icon'){
+        position: absolute;
+        z-index: 1;
+        left:10rpx;
+        top:10rpx;
+        border-radius: 100%;
+        @include state('info'){
+            color:$primary-color !important;
+        }
+        @include state('warning'){
+            color:$warning-color !important;
+        }
+        @include state('success'){
+            color:$success-color !important;
+        }
+        @include state('error'){
+            color:$danger-color !important;
+        }
+    }
+    @include e('close'){
+        position: absolute;
+        z-index: 1;
+        right:10rpx;
+        top:10rpx;
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover{
+            background: rgba($color-border,0.5);
+        }
+    }
+    .m-message-fade-enter-active {
+        transition: all .2s ease;
+      }
+    .m-message-fade-leave-active {
+        transition: all .2s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .m-message-fade-enter, .m-message-fade-leave-to{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
