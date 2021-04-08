@@ -23,6 +23,7 @@ import Timeline from './components/timeline/index'
 import TimelineItem from './components/timeline-item/index'
 import FloatButton from './components/float-button/index'
 import InputNumber from './components/input-number'
+import SwipeCard from './components/swipe-card'
 // import Radio from './components/radio/index'
 // import RadioGroup from './components/radio-group/index'
 // import Switch from './components/switch'
@@ -53,7 +54,8 @@ const components = [
   Timeline,
   TimelineItem,
   FloatButton,
-  InputNumber
+  InputNumber,
+  SwipeCard
   // Radio,
   // RadioGroup,
   // Switch

@@ -14,6 +14,16 @@
 				<m-button size='mini' type='primary'>按钮</m-button>
 			</m-col>
 		</m-row>
+		<br/>
+		<m-row>
+			<m-col>
+				<m-swipe-card :data='cards'>
+					<template slot-scope="row">
+						{{row}}
+					</template>
+				</m-swipe-card>
+			</m-col>
+		</m-row>
 	</view>
 </template>
 
@@ -21,14 +31,13 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				cards:[1,2,3,4]
 			}
 		},
 		onLoad() {
-
 		},
 		methods: {
-
 		}
 	}
 </script>
